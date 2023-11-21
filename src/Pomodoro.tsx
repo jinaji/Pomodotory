@@ -60,25 +60,44 @@ export const Pomodoro = () => {
 
   return (
     <div className="pomodoro-containner col-span-1 w-[30%] bg-blue-100 mx-auto">
-      <h1>POMODOTORY</h1>
-      <div className="time-section">
-        <p className="time-description">Time to {work ? "work" : "rest"}</p>
-        <p className="time">
-          {Math.floor(time / 60) < 10
-            ? `0${Math.floor(time / 60)}`
-            : Math.floor(time / 60)}{" "}
-          : {time % 60 < 10 ? `0${time % 60}` : time % 60}
-        </p>
+      <div className=" flex flex-col block">
+        <div>
+          <h1 className="text-center">POMODOTORY</h1>
+        </div>
+
+        <div className="time-section mx-auto">
+          <p className="time-description">Time to {work ? "work" : "rest"}</p>
+
+          <p className="time text-center">
+            {Math.floor(time / 60) < 10
+              ? `0${Math.floor(time / 60)}`
+              : Math.floor(time / 60)}{" "}
+            : {time % 60 < 10 ? `0${time % 60}` : time % 60}
+          </p>
+        </div>
+
         {doneCycle()}
-        <button className="start-button" onClick={() => handleButton("start")}>
-          Start
-        </button>
-        <button className="pause-button" onClick={() => handleButton("pause")}>
-          Pause
-        </button>
-        <button className="reset-button" onClick={() => handleButton("reset")}>
-          Reset
-        </button>
+
+        <div className="button-section justify-items-stretch space-x-2 mx-auto">
+          <button
+            className="start-button"
+            onClick={() => handleButton("start")}
+          >
+            Start
+          </button>
+          <button
+            className="pause-button"
+            onClick={() => handleButton("pause")}
+          >
+            Pause
+          </button>
+          <button
+            className="reset-button"
+            onClick={() => handleButton("reset")}
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );
