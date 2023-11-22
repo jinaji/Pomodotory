@@ -13,7 +13,7 @@ export const Todo = () => {
 
   // REST API 테스트
   useEffect(() => {
-    const res = axiosInstance.post("/todos");
+    const res = axiosInstance.post("/todos", todos);
   }, [todos]);
 
   console.log(todos);
